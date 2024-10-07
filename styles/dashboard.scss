@@ -3,16 +3,16 @@
   align-items: center;
   gap: 1em;
   padding: 0.7em 1em;
-  background-color: var(--white);
+  background-color: #f1f2f6;
   position: relative;
-  border-radius: 100px;
+  border-radius: 8px;
 }
 .dashboard__main__header__right__toggle::after {
   content: "";
-  background: linear-gradient(#494f55, #323639);
-  width: 45%;
+  //   background-color: #161f28;
+  width: 75%;
   height: 90%;
-  border-radius: 100px;
+  border-radius: 8px;
   left: 0.4em;
   position: absolute;
   transition: 0.3s ease all;
@@ -21,10 +21,10 @@
   left: calc(48%);
 }
 .dashboard__main__header__right__toggle:is(:not(.active)) button:first-child {
-  color: white !important;
+  color: rgb(8, 8, 8) !important;
 }
 .dashboard__main__header__right__toggle:is(.active) button:last-child {
-  color: white !important;
+  color: rgb(14, 13, 13) !important;
 }
 .dashboard__main__header__right__toggle button {
   border: none;
@@ -37,13 +37,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--black);
+  color: var(--primary);
+  //   background-color: var(--dark);
   font-weight: bold;
 }
 .dashboard {
   display: flex;
-  gap: 1.5em;
+  //   gap: 1.5em;
   height: 100vh;
+  background-color: #f7f8fb;
 }
 .dashboard__sidebar__logo__img {
   margin-bottom: 20px;
@@ -54,19 +56,30 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 1em 0;
-  margin-right: 1em;
+  margin-bottom: 1em;
+  padding: 1em 3em;
   gap: 1em;
+  background-color: var(--white);
 }
 .dashboard__main__header__right {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 1em;
 }
 .dashboard__sidebar__warper {
   width: fit-content;
   height: 100vh;
   padding: 20px;
+  position: relative;
+}
+.dashboard__sidebar__warper__bg {
+  padding: 2em 0;
+  background-color: var(--white);
+  position: absolute;
+  height: 70px;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .dashboard__sidebar {
   display: flex;
@@ -85,4 +98,196 @@
 
 .dashboard__main {
   flex: 1;
+}
+.dashboard__sidebar__content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 1em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5em;
+}
+
+.dashboard__sidebar__content__entry {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.9em 3em;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1em;
+  transition: 300ms ease-in-out;
+}
+.dashboard__sidebar__content__entry svg {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.dashboard__sidebar__content__entry:hover {
+  background-color: var(--darkGray);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  color: var(--primary);
+}
+.dashboard__sidebar__content__entry.active {
+  background-color: var(--primary); /* Example active state */
+  font-weight: bold;
+}
+.dashboard__main__content {
+  height: calc(100vh - 115px);
+  padding: 0 1.5em;
+}
+.date__range__wrapper {
+  display: flex;
+  position: relative;
+}
+.date__range__wrapper__text {
+  display: flex;
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1em 1em;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.116);
+  color: var(--black);
+  gap: 0.5em;
+  font-size: 0.8em;
+  align-items: center;
+}
+.date__range__wrapper__text:hover {
+  border: 1px solid var(--primary);
+}
+[data-theme="dark"] {
+  .date__range__wrapper__text {
+    background-color: #424242;
+  }
+}
+.date__range__wrapper__calender {
+  overflow: hidden;
+  position: absolute;
+  top: 50px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+  animation: date__range__wrapper__calender 0.3s ease-in-out;
+  transform-origin: top;
+  z-index: 999;
+  right: 0;
+}
+@keyframes date__range__wrapper__calender {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+.page__header__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page__header__container__heading {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+.page__header__container__col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+.filter__col {
+  padding: 0.6em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  background-color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.171);
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+.filter__col:hover {
+  border: 1px solid var(--primary);
+  transition: 300ms ease-in-out;
+}
+.filter__col__svg svg {
+  color: var(--primary);
+}
+.notification__button {
+  padding: 0.5em 0.8em;
+  background-color: #f1f2f6;
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.dashboard__main__header__right__notifications {
+  position: relative;
+}
+.user__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  border-left: 1px solid rgba(0, 0, 0, 0.212);
+  padding: 0 1em;
+}
+.user__container__avatar {
+  background-color: #bfa674;
+  border-radius: 80px;
+}
+.user__container__avatar__img {
+  width: 50px;
+  height: 50px;
+  padding: 0.6em;
+}
+.user__container__title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.user__container__name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.user__container__role {
+  color: #73797e;
+  font-size: 0.9rem;
+  transition: 300ms ease-in-out;
+}
+.user__container__svg svg:hover {
+  cursor: pointer;
+  color: var(--primary);
+  transition: 300ms ease-in-out;
+}
+.export__btn {
+  background: var(
+    --Accent-gold-default,
+    linear-gradient(87deg, #9d6323 4.53%, #ffb73c 143.09%)
+  );
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: 0.8em 1em;
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+}
+.export__btn:hover {
+  background: var(--black);
+  transition: 300ms ease-in-out;
 }
