@@ -2,6 +2,7 @@
 import DateRange from "@/components/DateRange";
 import React, { useState } from "react";
 import dayjs from "dayjs";
+import DashboardTable from "@/components/DashboardTable";
 export default function page() {
   const [dateRange, setDateRange] = useState({
     startDate: dayjs().subtract(1, "month").toDate(),
@@ -261,6 +262,7 @@ export default function page() {
           <DashboardCard />
         </div>
       </div>
+      <DashboardTable />
     </>
   );
 }
